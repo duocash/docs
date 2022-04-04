@@ -17,7 +17,7 @@ const config = {
   projectName: 'docs', // Usually your repo name.
 
   plugins: [
-    'plugin-image-zoom',
+    require.resolve('docusaurus-plugin-image-zoom')
   ],
 
   presets: [
@@ -47,14 +47,17 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
 
-      imageZoom: {
+      zoom: {
         // CSS selector to apply the plugin to, defaults to '.markdown img'
         selector: '.markdown img',
         // Optional medium-zoom options
         // see: https://www.npmjs.com/package/medium-zoom#options
-        options: {
-          margin: 24,
-          background: 'linear-gradient(to right bottom, rgba(67, 233, 123, 0.4), rgba(56, 249, 215, 0.4))',
+        config: {
+
+          background: {
+            light: 'rgb(255, 255, 255)',
+            dark: 'rgb(50, 50, 50)'
+          },
         },
       },
 
